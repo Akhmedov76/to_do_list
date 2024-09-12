@@ -1,9 +1,10 @@
 from sqlalchemy import desc
 
+from Decorator.decorator import log_decorator
 from database.database import execute_query
 from queries.models import tasks
 
-
+@log_decorator
 def create_task(task, status, priority):
     """
     Create a new task.
@@ -12,7 +13,7 @@ def create_task(task, status, priority):
     result = execute_query(query=query)
     return result.inserted_primary_key
 
-
+@log_decorator
 def get_task(task_id):
     """
     Retrieve a task by its ID.
@@ -21,7 +22,7 @@ def get_task(task_id):
     result = execute_query(query=query, )
     return result.fetchone()
 
-
+@log_decorator
 def get_tasks(descending=False):
     """
     Retrieve all tasks.
@@ -33,7 +34,7 @@ def get_tasks(descending=False):
     result = execute_query(query=query, )
     return result.fetchall()
 
-
+@log_decorator
 def update_task(task_id, priority, ):
     """
     Update the priority of a task.
@@ -42,7 +43,7 @@ def update_task(task_id, priority, ):
     result = execute_query(query=query)
     return result.rowcount
 
-
+@log_decorator
 def delete_task(task_id):
     """
     Delete a task by its ID.
@@ -51,7 +52,7 @@ def delete_task(task_id):
     result = execute_query(query=query)
     return result.rowcount
 
-
+@log_decorator
 def update_priority(task_id, priority):
     """
     Update the priority of a task.

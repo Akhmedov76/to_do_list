@@ -1,9 +1,10 @@
 import threading
 
+from Decorator.decorator import log_decorator
 from queries.models import create_to_do_list_table
 from queries.queries import create_tasks, update_tasks, delete_tasks, get_task_status, update_task_priority
 
-
+@log_decorator
 def auth_menu():
     print("""
 1. Create a new task
