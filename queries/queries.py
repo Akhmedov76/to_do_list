@@ -41,8 +41,8 @@ def update_task_priority():
     """
     Update task priority
     """
-    task_id = int(input("Enter task ID: "))
-    priority = int(input("Enter new priority: "))
+    task_id = input("Enter task ID: ")
+    priority = input("Enter new priority: ")
     update_priority(task_id, priority)
     print("Task priority updated successfully.")
     print(get_tasks())
